@@ -1,0 +1,24 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int main(){
+	long long t;
+	cin>>t;
+	while(t--)
+	{
+	    long long n,k,sum=0,sum1=0;
+	    cin>>n>>k;
+	    long ar[n];
+	    for( int i=0; i<n ;i++){
+	        cin>>ar[i];
+	        sum+=ar[i];
+	        if(ar[i]>k){
+	            ar[i]=k;
+	        }
+	        sum1+=ar[i];
+	    }
+	   // cout<<sum<<" "<<sum1<<" ";
+	    cout<<(sum-sum1)<<endl;
+	}
+	return 0;
+}
