@@ -1,0 +1,41 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int main(){
+	long long t;
+	cin>>t;
+	while(t--)
+	{
+	    long long n,count5=0,count10=0, count=0;
+	    cin>>n;
+	    int ar[n];
+	    for( int i=0; i<n ;i++){
+	        cin>>ar[i];
+	        if(ar[i]==5){
+	            count5++;
+	            count++;
+	        }
+	        else if(ar[i]==10&&count5>0){
+	            count5--;
+	            count10++;
+	            count++;
+	        }
+	        else if(ar[i]==15&&(count5>1||count10>0)){
+	            if(count10>0)
+	                count10--;
+	            else
+	                count5-=2;
+	           count++;
+	        }
+	       // else{
+	       //     cout<<"NO"<<endl;
+	       //     goto p;
+	       // }
+	    }
+	    if(count == n)
+	        cout<<"YES"<<endl;
+	    else
+	        cout<<"NO"<<endl;
+	}
+	return 0;
+}
