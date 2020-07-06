@@ -1,0 +1,26 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+int main(){
+	long long t;
+	cin>>t;
+	while(t--)
+	{
+	    long long n, odd=1,even=2;
+	    cin>>n;
+	    for(int i=1; i<=n; i++){
+	       for(int j=1; j<=n; j++){
+	           if((i+j)%2==0){
+	               cout<<odd<<" ";
+	               odd+=2;
+	           }
+	           else{
+	               cout<<even<<" ";
+	               even+=2;
+	           }
+	       }
+	       cout<<endl;
+	    }
+	}
+	return 0;
+}
