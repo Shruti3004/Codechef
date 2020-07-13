@@ -1,0 +1,97 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+long long countOccurence(long long arr[], long long n, long long x, int a){
+    long long res =0 ;
+    for(int i=a; i<n; i++){
+        if(x==arr[i])
+            res++;
+        else if(arr[i]>x)
+            break;
+    }
+    return res;
+}
+
+long long funcXor(long a, long b){
+    long long res;
+    res = (a^b);
+    return res;
+}
+
+int main(){
+    
+	long long t;
+	cin>>t;
+	while(t--)
+	{
+	    long long n, x, count=0, cost=0, xorab=0, counta=0, countb=0, diff, pos=0, dcountb=0, dpos=0;
+	    vector<long long> va,vb; 
+	    cin>>n;
+	    long long a[n],b[n];
+	    for(int i=0; i<n; i++){
+	       cin>>a[i];
+	    }
+	    for(int i=0; i<n; i++){
+	       cin>>b[i];
+	       xorab ^= funcXor(a[i], b[i]);
+	    }
+	    
+	    
+	    if(xorab != 0){
+	        cout<<"-1\n";
+	    }else{
+	        sort(a,a+n);
+    	    sort(b,b+n);
+    	    long long minimum = min(a[0],b[0]);
+    	    for(int i=0; i<n; i++){
+    	        counta = countOccurence(a, n, a[i], i);
+    	       
+    	          for(int j=dpos+dcountb; j<n; j++){
+    	            if(a[i] == b[j]){
+    	                countb = countOccurence(b, n, b[j], j); 
+    	                pos =j;
+    	                dcountb = countb;
+    	                dpos = pos;
+    	                break;
+    	            }else if(a[i] < b[j]){
+    	                countb = 0;
+    	                break;
+    	            }
+    	        }
+    	        if(counta > countb){
+    	            diff = counta-countb;
+    	            for(int k=0; k<diff; k++){
+    	                va.push_back(a[i]);   
+    	            }
+    	        }   if(countb>0 && counta>0){
+    	            for(int k=0; k<min(countb,counta); k++){
+    	                b[pos] = 0;
+    	                pos++;
+    	            
+    	        }}
+    	        i+=counta-1;
+    	        counta=0;
+    	        countb=0;
+    	        pos=0;
+    	        
+    	    }   	    
+    	  if(va.size()==0)
+    	        cout<<"0\n";
+    	    else{
+				sort(b, b+n, greater<long long>());
+				minimum*=2;
+    	        for(int i=0; i< va.size() ; i += 2){ 	           
+        	        count = min(va[i], b[i]);
+        	        if(count < minimum){
+        	            cost += count;
+        	        }else{
+        	            cost += minimum;
+        	        }
+    	        }
+    	        cout<<cost<<endl;      
+    	    }
+    	    
+    	}
+	}
+	return 0;
+}
