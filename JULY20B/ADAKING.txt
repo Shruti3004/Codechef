@@ -1,0 +1,32 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int main(){
+	long long t;
+	cin>>t;
+	while(t--)
+	{
+	    long long k;
+	    cin>>k;
+	    char ar[8][8];
+	    for(int i=0; i<8 ; i++){
+	        for(int j=0; j<8 ; j++){
+	            if(i==0 && j==0){
+	                cout<<"O";
+	            }
+	            else if(i==(k/8)){
+	                if(j<(k%8))
+	                    cout<<".";
+	                else
+	                    cout<<"X";
+	            }
+	            else if(i==((k/8)+1))
+	                cout<<"X";
+	            else
+	                cout<<".";
+	        }
+	        cout<<endl;
+	    }
+	}
+	return 0;
+}
