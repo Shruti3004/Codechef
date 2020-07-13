@@ -1,0 +1,42 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+int main(){
+	long long t;
+	cin>>t;
+	while(t--)
+	{
+	    long long n,x,count=0;
+	    cin>>n>>x;
+	    long long d=x;
+	    int ar[n];
+	    for(int i=0; i<n; i++){
+	       cin>>ar[i];
+	    }
+	    sort(ar, ar+n);
+	    if(x >= ar[n-1]){
+	       cout<<n<<endl;
+	    }
+	    else{
+	       for(int i=0; i<n ; i++){
+	           if(ar[i]<=d){
+	               count++;
+	           }
+	           else{
+	               count++ ;
+        	       while(d<ar[i]){                    
+        	           d = d*2;
+        	           count++ ;
+        	       }
+	           }
+        	       d=ar[i];
+        	       if(d<=ar[i+1])
+        	           d=ar[i]*2;
+        	       if((ar[i]*2)<=x)
+        	           d=x;
+	       }
+	       cout<<count<<endl;
+	    }
+	}
+	return 0;
+}
