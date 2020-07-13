@@ -1,0 +1,45 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int palin(int n){
+    int sum=0;
+    while(n>0){
+        sum += n%10;
+        n/=10;
+    }
+    return sum;
+}
+
+int main(){
+	long long t;
+	cin>>t;
+	while(t--)
+	{
+	    long long n,chef=0, morty=0 ;
+	    cin>>n;
+	    int c[n],m[n];
+	    for(int i=0; i<n; i++){
+	        cin>>c[i]>>m[i];
+	    }
+	    for(int i=0; i<n; i++){
+	        if(palin(c[i]) > palin(m[i]))
+	            chef++;
+	        else if(palin(m[i]) > palin(c[i]))
+	            morty++;
+	        else{
+	            chef++;
+	            morty++;
+	        }
+	    }
+	    if(chef==morty){
+	        cout<<"2 "<<chef<<endl;
+	    }
+	    else if(chef>morty){
+	        cout<<"0 "<<chef<<endl;
+	    }
+	    else{
+	        cout<<"1 "<<morty<<endl;
+	    }
+	}
+	return 0;
+}
