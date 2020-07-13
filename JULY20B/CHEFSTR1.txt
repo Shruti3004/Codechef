@@ -1,0 +1,21 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int main(){
+	long long t;
+	cin>>t;
+	while(t--)
+	{
+	    long long n, sum=0;
+	    cin>>n;
+	    int ar[n];
+	    for(int i=0; i<n; i++){
+	        cin>>ar[i];
+	    }
+	    for(int i=0; i<n-1; i++){
+	        sum += (abs(ar[i+1]-ar[i])-1);
+	    }
+	    cout<<endl<<sum<<endl;
+	}
+	return 0;
+}
