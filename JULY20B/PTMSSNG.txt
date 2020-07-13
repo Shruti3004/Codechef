@@ -1,0 +1,35 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int oddOccurence(int ar[], int size){
+    int odd = 0;
+    for(int i=0; i<size; i++)
+        odd = odd ^ ar[i];
+        
+    return odd;
+}
+
+int main(){
+	long long t;
+	cin>>t;
+	while(t--)
+	{
+	    long long n;
+	    cin>>n;
+	    int size= (4*n-1) ;
+	    int x[size],y[size];
+	    
+	    for(int i=0; i<size; i++){
+	        cin>>x[i]>>y[i];
+	    }
+	    sort(x, x+size);
+	    sort(y, y+size);
+	    
+	    int x_cor = oddOccurence(x, size);
+	    int y_cor = oddOccurence(y, size);
+	    
+	    cout<<x_cor<<" "<<y_cor<<endl;
+	    
+	}p:
+	return 0;
+}
