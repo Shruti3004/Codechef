@@ -1,0 +1,30 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+int main(){
+	long long t;
+	cin>>t;
+	while(t--)
+	{
+	    int c, r, cn, rn;
+	    cin>>c>>r;
+        if(c%9==0){
+            cn = c/9;   
+        }
+        else{
+            cn = (c/9) + 1;
+        }
+        if(r%9==0){
+            rn = r/9;   
+        }
+        else{
+            rn = (r/9) + 1;
+        }
+        if(cn>=rn){
+            cout<<"1 "<<rn<<"\n";
+        }else{
+            cout<<"0 "<<cn<<"\n";
+        }
+	}
+	return 0;
+}
